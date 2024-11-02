@@ -8,7 +8,7 @@
 <body>
     <h1>User情報管理システム</h1>
     <h2>User登録</h2>
-    <form method="post" th:action="@{/user/register}" th:object="${user}">
+        <form method="post" th:action="@{/user/register}" th:object="${user}">
         <label for="name">名前</label>
         <input type="text" th:field="*{name}" th:errorclass="err">
         <span th:errors="*{name}" class="err"></span>

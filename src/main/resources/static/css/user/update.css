@@ -9,3 +9,7 @@ label {
 .err {
     color: red;
 }
+
+.error-input {
+    color: red; /* テキストの色を赤に */
+}

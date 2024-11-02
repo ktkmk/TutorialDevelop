@@ -8,14 +8,16 @@
 <body>
     <h1>User情報管理システム</h1>
     <h2>User更新</h2>
+    <label for="ID">ID</label>
+    <span th:text="${user.id}"></span>
     <form method="post" th:action="@{/user/update/{id}(id=${user.id})}" th:object="${user}">
         <input type="hidden" th:field="*{id}">
         <label for="name">名前</label>
-        <input type="text" th:field="*{name}">
+        <input type="text" th:field="*{name}" th:class="${#fields.hasErrors('name')} ? 'error-input' : ''">
         <span th:errors="*{name}" class="err"></span>
         <br>
         <label for="gender">性別</label>
-        <select th:field="*{gender}">
+        <select th:field="*{gender}" th:class="${#fields.hasErrors('gender')} ? 'error-input' : ''">
             <option value="" th:text="選択してください"></option>
             <option th:each="item:${T(com.techacademy.entity.User.Gender).values()}"
                     th:value="${item}" th:text="${item}"
@@ -24,11 +26,11 @@
         <span th:errors="*{gender}" class="err"></span>
         <br>
         <label for="age">年齢</label>
-        <input type="text" th:field="*{age}">
+        <input type="text" th:field="*{age}" th:class="${#fields.hasErrors('age')} ? 'error-input' : ''">
         <span th:errors="*{age}" class="err"></span>
         <br>
         <label for="email">メールアドレス</label>
-        <input type="text" th:field="*{email}">
+        <input type="text" th:field="*{email}" th:class="${#fields.hasErrors('email')} ? 'error-input' : ''">
         <span th:errors="*{email}" class="err"></span>
         <br>
         <br>
